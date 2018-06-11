@@ -78,15 +78,15 @@
   
 github:
   name: "GitHub"
-  baseURL: "https://github.com/LoicH"
+  baseURL: "https://github.com/"
   icon: "fa-github"
 
 email:
   name: "Email me"
-  baseURL: "mailto:loic [dot] herbelot [at] free.fr"
+  baseURL: "mailto:"
   icon: "fa-envelope"
 
 linkedin:
   name: "LinkedIn"
-  baseURL: "https://linkedin.com/in/herbelot"
+  baseURL: "https://linkedin.com/in/"
   icon: "fa-linkedin"
