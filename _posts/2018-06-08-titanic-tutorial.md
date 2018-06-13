@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Basic data-science: Predicting Titanic survivors"
-date:   2018-06-08
+title: 'Basic data-science: Predicting Titanic survivors'
+date: 'Fri Jun 08 2018 02:00:00 GMT+0200 (Romance Daylight Time)'
 categories: datascience
+published: true
 ---
 
 Let's use python to predict who will survive from the Titanic disaster!
@@ -10,6 +11,8 @@ Let's use python to predict who will survive from the Titanic disaster!
 In this project we will cover some basics of data-science and machine learning:
 - clean data
 - leverage the data for predictions
+
+In short we will retrieve data from CSV files, clean the data, and train an estimator to perform binary classification.
 
 ## Step 1: get the data
 
@@ -113,8 +116,7 @@ perfect, but not bad either.
 
 ## Step 5: predict the output
 
-We will predict from the testing data, and create a well-formatted file
-for Kaggle.
+We will predict from the testing data, and create file that we can upload in Kaggle.
 
 ```` python
 Y_test = clf.predict(X_test)
@@ -125,3 +127,14 @@ output.insert(1, "Survived", Y_test)
 print(output.head())
 output.to_csv(path_or_buf="titanic_predict.csv", index=False)
 ````
+
+And that's it!
+
+## Conclusion
+
+Some things could be improved:
+- Cross-Validation could help us find a better model and/or more suitable parameters.
+- Training the classifier on the whole training data before applying it to the test data could improve the classifier's performance.
+- And many other things...
+
+But with some lines of python and the help of `pandas`, `scikit-learn` and `numpy` we succesfully built a machine learning  system!
