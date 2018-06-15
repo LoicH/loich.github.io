@@ -13,29 +13,41 @@ In this article I will explain **how to perform ad targetting** with reinforceme
 
 ## Our goal
 
-We are managing a news website with lots of articles and pages, visited by many users. We want to monetize our content by placing ads on our website, but we can't randomly assign ads to articles, we need to find a way to put relevant ads in in articles. 
-Let's say everytime a user requests page we can choose which ad the user will see, and we can record whether he clicked on the ad.
+We are managing a news website with lots of articles and pages, visited by many users. We want to monetize our content by placing ads on our website, but we can't randomly assign ads to articles, we need to find a way to put relevant ads in articles. 
+Let's say everytime a user requests a page we can choose which ad the user will see, and we can record whether he clicked on the ad.
 
 How can we maximize the number of clicks on our ads?
 
 ## Multi-armed bandits
 
-This is a multi-armed bandit problem: at each turn we can choose one action from a limited choice, without knowledge of the reward associated to each action. We can only learn from past experiences what actions are the most lucrative, to choose the future actions.
+This is a multi-armed bandit problem: at each turn we can choose one action (one ad) from a limited choice, without knowledge of the reward associated to each action. We can only learn from past experiences what actions are the most lucrative, to choose the future actions.
 
-As an example, let's assume we are in a waird casino with some free bandit machines in front of us. These machinese do not require us to put money inside, we juste have to push a button and a reward can come. We have no knowledge about these machines, there may be one machine that will give us 1$ every time we press a button, and another machine that give us 100$ once every 10 pushes, and nothing 9 times out of 10. There may also be a machine that give us 2$ once every 100 push and nothing 99% percent of the time... We want to be as rich as possible before the casino owner kicks us out!
+### What is the multi-armed bandit problem?
 
-How can we do this? You can try to follow your intuition, but it is not very interesting. For instance let's say we have the 3 previous machines in front of us, with the following characteristics:
-- Machine #1: 1$ every time
-- Machine #2: 100$ 1 time out of 10
-- Machine #3: 2$ 1 time out of 100.
+Let's assume we are in a weird casino with some free bandit machines in front of us. These machines do not require us to put money inside, we juste have to pull the arm and we could receive money. We have no knowledge about these machines, there may be one machine that will give us 1$ every time we press a button, and another machine that give us 100$ once every 10 pushes... 
+The question is the following: "Without knowledge of the outcomes and their probabilities, what strategy is the best to maximize my gains?"
 
-If we knew the odds beforehand, we should frantically push on the 2nd machine's button, which has the best mean outcome, approx. 10$ for every push of the button. But we don't know that. We only have 3 similar-looking machines in front of us, and so little time to drain the money out of them!
+We could use 5 times each machine, then keep using the one that is the most lucrative. In our case, we use the 1st machine 5 times, we get 1$ everytime, then we use the 2nd machine 5 times, and there is a good chance we get nothing out of this machine. So now we think that the best machine is the 1st one, and we only use it. 
 
-Let's try some scenarios:
-### Scenario #1
-- You try the first machine, 
+This is not optimal, we need to find a compromise between **exploiting** the best machine we found so far, and **exploring** to find a better machine.
 
-Fortunately there is an optimal way of choosing the actions which is a compromise between selecting the best action we found so far, and exploring to find better actions.
+Fortunately there are several efficient algorithms to maximize our gains.
+
+#### Exploration, then exploitation ("Epsilon-first strategy")
+
+I explained this method in the previous example, this method consists in first trying the various actions, then always selecting the best action. When doing this method we hope that we accurately modelled each machine's behaviour.
+
+#### Exploitation, and a bit of exploration ("Epsilon-greedy strategy")
+
+We select `e` between 0 and 1, 0.1 for instance, and with a probability of `e` we select a random machine, and the rest of the time (with a probability of `1-e`) we select the best machine we found so far. This is a good compromise between exploiting the best machine, and exploring. But this method depends on the choice of `e`: how can we find the best `e`?
+
+#### An efficient mix of exploration and exploitation: UCB
+
+(UCB stands for *Upper Confidence Bound*, from the paper [Finite-time Analysis of the Multiarmed Bandit Problem](https://rd.springer.com/article/10.1023%2FA%3A1013689704352)
+
+The algorithm is pretty simple, at every turn we need to play the machine that maximizes $$x^2$$
+
+
 
 ## Evaluation
 
@@ -63,9 +75,4 @@ On the other hand readers of article number 1 preferred ad number 9: 32% of thes
 
 ## Our goal
 
-We need to 
-
-
-
-
-
+We need to
