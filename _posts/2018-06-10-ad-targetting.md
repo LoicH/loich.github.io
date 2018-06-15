@@ -3,7 +3,7 @@ layout: post
 title: Ad targetting with reinforcement learning
 date: 'Sun Jun 10 2018 02:00:00 GMT+0200'
 categories: datascience
-published: false
+published: true
 ---
 ## Intro
 
