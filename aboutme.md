@@ -15,7 +15,7 @@ I am doing lot of security-related development. I use mainly Java to improve the
 
 ### September 2016 - Now: Website development
 
-I am managing the website of a great friend and musician: [Florin Niculescu](www.florin-niculescu.com/).
+I am managing the website of a great friend and musician: [Florin Niculescu](http://www.florin-niculescu.com/).
 
 ## Studies
 
