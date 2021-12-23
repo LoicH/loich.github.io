@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ad targetting with reinforcement learning
+title: Ad targeting with reinforcement learning
 date: 'Sun Jun 17 2018 02:00:00 GMT+0200'
 categories: datascience
 published: true
@@ -8,7 +8,7 @@ published: true
 
 Data science is used for lots of tasks, including selecting the best ads to make users click on it, because companies need people to buy their product!
 
-In this article I will explain **how to perform ad targetting** with reinforcement learning.
+In this article I will explain **how to perform ad targeting** with reinforcement learning.
 
 ## Our goal
 
@@ -226,7 +226,7 @@ print("%d clicks, click rate: %f" % (n_clicks, n_clicks/n_visits))
 
 Output (we plotted the number of ads clicked):
 
-![](/img/ad_targetting/baseline_random_ads_clicked.png)
+![](/img/ad_targeting/baseline_random_ads_clicked.png)
 
 
 `778 clicks, click rate: 0.077800`
@@ -265,7 +265,7 @@ print("%d clicks, click rate: %f" % (n_clicks, n_clicks/n_visits))
 Output (we plotted the number of ads clicked):
 
 
-![](/img/ad_targetting/baseline_static_best_ads_clicked.png)
+![](/img/ad_targeting/baseline_static_best_ads_clicked.png)
 
 
 `2715 clicks, click rate: 0.271500`
@@ -296,7 +296,7 @@ print("%d clicks, click rate: %f" % (n_clicks, n_clicks/n_visits))
 Output (we plotted the **click rate**):
 
 
-![](/img/ad_targetting/baseline_optimal_click_rate.png)
+![](/img/ad_targeting/baseline_optimal_click_rate.png)
 
 
 `2983 clicks, click rate: 0.298300`
@@ -308,7 +308,7 @@ On the previous graph we saw that this system is optimal and doesn't learn, the 
 Our goal is to design a system that learns, so at first it should perform like the random baseline, achieving a score of ~7%, then improving to a an optimal score of ~29%.
 This is why we plot the click rate, and not only the number of ads clicked. When seeing only the evolution of the number of clicks, we can't easily see the improvements of our system, while it's pretty obvious on the click rate graph:
 
-![](/img/ad_targetting/ucb_click_rate.png)
+![](/img/ad_targeting/ucb_click_rate.png)
 
 This is the result of the system we will be designing, at first it has a click rate under 10%, then it improves and achieves optimal scores.
 
@@ -363,7 +363,7 @@ Output:
 
 
 
-![](/img/ad_targetting/ucb_click_rate.png)
+![](/img/ad_targeting/ucb_click_rate.png)
 
 
 `526361 clicks, click rate: 0.263180`
