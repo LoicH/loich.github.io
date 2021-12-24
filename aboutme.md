@@ -13,7 +13,13 @@ I am Loïc Herbelot, a French data science student.
 
 ### October 2019 → Now: Data Scientist Consultant in a global tech group
 
+I'm working on Machine Learning projects. I use Deep Learning to do some Natural Language Processing, mainly to classify natural text that comes from our Speech To Text pipeline. This saves countless hours to our users, because sound data is very time consuming to process by hand.
+
+I am sort of a "lead tech engineer" for a big Business Intelligence / Reporting project, agregating hundreds of different metrics. I tried different technical solutions, and helped my colleagues delivering clean code rapidly.
+
 ### November 2018 → May 2019: Data Scientist in an insurtech startup
+
+I worked on a price tracking product for insurances. I built an image recognition pipeline that was hosted on Docker. I improved our REST API that used Django
 
 ### September 2016 → August 2018: 2-year apprenticeship at Trusted Labs
 
